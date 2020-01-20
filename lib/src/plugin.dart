@@ -204,6 +204,7 @@ class AngelAuth<User> {
       }
 
       var user = await deserializer(token.userId);
+      req.session['_jwt'] = user;
       _apply(req, res, token, user);
       return _AuthResult(user, token);
     }
